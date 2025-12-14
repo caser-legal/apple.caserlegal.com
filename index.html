@@ -1,0 +1,1051 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+
+  <title>Caser Publishing</title>
+  <meta name="description" content="Caser Publishing — thoughtfully crafted apps for iOS and macOS." />
+  <meta name="author" content="Caser Publishing" />
+
+  <style>
+    :root {
+      --font: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --bg0: #e7e9ee;
+      --bg1: rgba(245, 246, 248, 0.78);
+      --bg2: rgba(248, 249, 250, 0.62);
+      --card: rgba(246, 247, 249, 0.78);
+      --stroke: rgba(60, 60, 67, 0.18);
+      --stroke-strong: rgba(60, 60, 67, 0.28);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.10);
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.10);
+      --text: rgba(28, 28, 30, 0.92);
+      --muted: rgba(28, 28, 30, 0.72);
+      --muted2: rgba(28, 28, 30, 0.58);
+      --link: #1a1a1a;
+      --focus: #ca8a04;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --space-1: 8px;
+      --space-2: 12px;
+      --space-3: 16px;
+      --space-4: 22px;
+      --space-5: 28px;
+      --space-6: 36px;
+      --maxw: 1120px;
+      --accent1: rgba(255, 45, 85, 0.22);
+      --accent2: rgba(255, 149, 0, 0.22);
+      --accent3: rgba(175, 82, 222, 0.20);
+      --accent4: rgba(52, 199, 89, 0.16);
+      --accent5: rgba(255, 204, 0, 0.14);
+      --glass-blur: 18px;
+      --glass-sat: 150%;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg0: #12141a;
+        --bg1: rgba(26, 28, 34, 0.78);
+        --bg2: rgba(26, 28, 34, 0.62);
+        --card: rgba(26, 28, 34, 0.78);
+        --stroke: rgba(235, 235, 245, 0.14);
+        --stroke-strong: rgba(235, 235, 245, 0.22);
+        --shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+        --shadow-soft: 0 12px 34px rgba(0, 0, 0, 0.50);
+        --text: rgba(244, 246, 251, 0.92);
+        --muted: rgba(244, 246, 251, 0.74);
+        --muted2: rgba(244, 246, 251, 0.58);
+        --link: #ffffff;
+        --focus: #eab308;
+        --accent1: rgba(255, 55, 95, 0.16);
+        --accent2: rgba(255, 159, 10, 0.16);
+        --accent3: rgba(191, 90, 242, 0.16);
+        --accent4: rgba(48, 209, 88, 0.12);
+        --accent5: rgba(255, 214, 10, 0.10);
+      }
+    }
+    html[data-theme="light"] {
+      color-scheme: light;
+      --bg0: #e7e9ee;
+      --bg1: rgba(245, 246, 248, 0.78);
+      --bg2: rgba(248, 249, 250, 0.62);
+      --card: rgba(246, 247, 249, 0.78);
+      --stroke: rgba(60, 60, 67, 0.18);
+      --stroke-strong: rgba(60, 60, 67, 0.28);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.10);
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.10);
+      --text: rgba(28, 28, 30, 0.92);
+      --muted: rgba(28, 28, 30, 0.72);
+      --muted2: rgba(28, 28, 30, 0.58);
+      --link: #1a1a1a;
+      --focus: #ca8a04;
+      --accent1: rgba(255, 45, 85, 0.22);
+      --accent2: rgba(255, 149, 0, 0.22);
+      --accent3: rgba(175, 82, 222, 0.20);
+      --accent4: rgba(52, 199, 89, 0.16);
+      --accent5: rgba(255, 204, 0, 0.14);
+    }
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --bg0: #12141a;
+      --bg1: rgba(26, 28, 34, 0.78);
+      --bg2: rgba(26, 28, 34, 0.62);
+      --card: rgba(26, 28, 34, 0.78);
+      --stroke: rgba(235, 235, 245, 0.14);
+      --stroke-strong: rgba(235, 235, 245, 0.22);
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+      --shadow-soft: 0 12px 34px rgba(0, 0, 0, 0.50);
+      --text: rgba(244, 246, 251, 0.92);
+      --muted: rgba(244, 246, 251, 0.74);
+      --muted2: rgba(244, 246, 251, 0.58);
+      --link: #ffffff;
+      --focus: #eab308;
+      --accent1: rgba(255, 55, 95, 0.16);
+      --accent2: rgba(255, 159, 10, 0.16);
+      --accent3: rgba(191, 90, 242, 0.16);
+      --accent4: rgba(48, 209, 88, 0.12);
+      --accent5: rgba(255, 214, 10, 0.10);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg0); color: var(--text); font-family: var(--font); text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    [id] { scroll-margin-top: 92px; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; } }
+    body { margin: 0; line-height: 1.5; }
+    a { color: var(--link); }
+    a:hover { text-decoration: underline; }
+    :focus-visible { outline: 3px solid color-mix(in srgb, var(--focus) 70%, transparent); outline-offset: 3px; border-radius: 10px; }
+    .skip-link { position: absolute; top: 10px; left: 10px; padding: 10px 14px; border-radius: 12px; background: var(--card); border: 1px solid var(--stroke); box-shadow: var(--shadow-soft); transform: translateY(-140%); transition: transform 180ms ease; z-index: 9999; }
+    .skip-link:focus { transform: translateY(0); }
+    .bg { position: fixed; inset: 0; pointer-events: none; z-index: -1; background: radial-gradient(900px 560px at 14% 14%, var(--accent1), transparent 60%), radial-gradient(920px 580px at 86% 16%, var(--accent2), transparent 62%), radial-gradient(980px 640px at 52% 88%, var(--accent3), transparent 64%), radial-gradient(760px 520px at 74% 76%, var(--accent4), transparent 62%), radial-gradient(760px 520px at 28% 72%, var(--accent5), transparent 62%), linear-gradient(180deg, color-mix(in srgb, var(--bg0) 96%, transparent), color-mix(in srgb, var(--bg0) 92%, transparent) 60%, var(--bg0)); filter: saturate(120%); }
+    .container { width: min(var(--maxw), calc(100% - 2 * var(--space-5))); margin-inline: auto; }
+    .section { padding: clamp(40px, 5vw, 64px) 0; }
+    .section + .section { border-top: 1px solid color-mix(in srgb, var(--stroke) 70%, transparent); }
+    .kicker { font-size: 0.92rem; letter-spacing: 0.02em; text-transform: uppercase; background: linear-gradient(135deg, #c06080 0%, #c09060 25%, #a0a060 50%, #60a070 75%, #8060a0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    h1 { font-size: clamp(2.2rem, 4.2vw, 3.3rem); line-height: 1.12; letter-spacing: -0.02em; margin: 0 0 var(--space-3); }
+    h2 { font-size: clamp(1.55rem, 2.4vw, 2.05rem); line-height: 1.2; letter-spacing: -0.01em; margin: 0 0 var(--space-3); }
+    h3 { font-size: 1.1rem; line-height: 1.25; margin: 0 0 var(--space-2); }
+    p { margin: 0 0 var(--space-3); color: var(--muted); }
+    ul { margin: 0; padding-left: 1.2rem; color: var(--muted); }
+    li { margin: 0.3rem 0; }
+    .glass { background: var(--card); border: 1px solid var(--stroke); border-radius: var(--radius-lg); box-shadow: var(--shadow); backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat)); -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat)); }
+    @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { .glass { background: color-mix(in srgb, var(--card) 92%, var(--bg0)); } }
+    .card { background: var(--bg2); border: 1px solid var(--stroke); border-radius: var(--radius-md); box-shadow: var(--shadow-soft); padding: var(--space-4); }
+    .muted { color: var(--muted2); }
+    header { position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(calc(var(--glass-blur) + 6px)) saturate(var(--glass-sat)); -webkit-backdrop-filter: blur(calc(var(--glass-blur) + 6px)) saturate(var(--glass-sat)); border-bottom: 1px solid color-mix(in srgb, var(--stroke) 70%, transparent); background: color-mix(in srgb, var(--bg1) 85%, transparent); }
+    .nav { display: flex; align-items: center; justify-content: center; gap: var(--space-3); padding: 12px 0; position: relative; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none !important; color: inherit; overflow: visible !important; }
+    /* Scroll-reveal logo - absolutely positioned so it doesn't affect nav centering */
+    .scroll-brand { position: absolute; left: 0; top: 50%; transform: translateY(-50%); opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+    header.scrolled .scroll-brand { opacity: 1; pointer-events: auto; }
+    .brand:hover { text-decoration: none !important; }
+    .brand::before, .brand::after, .brand *::before, .brand *::after { display: none !important; content: none !important; background: none !important; width: 0 !important; height: 0 !important; }
+    .brand-ascii { font-family: var(--mono); font-size: 4px; line-height: 1; letter-spacing: -0.5px; margin: 0; white-space: pre; color: var(--text); }
+    .hero .brand-ascii { color: var(--text); }
+    .brand-title { font-weight: 650; letter-spacing: -0.01em; }
+    .brand-sub { display: block; font-size: 0.78rem; color: var(--muted2); margin-top: 2px; }
+    nav[aria-label="Primary"] { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .nav a.navlink { text-decoration: none; color: color-mix(in srgb, var(--text) 86%, var(--muted2)); font-size: 0.92rem; padding: 8px 10px; border-radius: 12px; }
+    .nav a.navlink:hover { background: color-mix(in srgb, var(--bg2) 75%, transparent); border: 1px solid color-mix(in srgb, var(--stroke) 70%, transparent); padding: 7px 9px; }
+    .nav a.navlink[aria-current="page"] { background: color-mix(in srgb, var(--bg2) 88%, transparent); border: 1px solid color-mix(in srgb, var(--stroke-strong) 70%, transparent); }
+    .nav-actions { display: inline-flex; gap: 10px; align-items: center; }
+    .iconbtn { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 14px; border: 1px solid var(--stroke); background: color-mix(in srgb, var(--bg2) 70%, transparent); box-shadow: 0 10px 24px rgba(0, 0, 0, 0.10); cursor: pointer; color: inherit; }
+    .iconbtn:hover { background: color-mix(in srgb, var(--bg2) 88%, transparent); border-color: var(--stroke-strong); }
+    .iconbtn svg { width: 18px; height: 18px; }
+    .hero { padding: clamp(34px, 5vw, 56px) 0 clamp(24px, 3vw, 34px); }
+    .hero-wrap { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: var(--space-5); align-items: center; padding: clamp(18px, 2vw, 26px); }
+    @media (max-width: 860px) { .hero-wrap { grid-template-columns: 1fr; } }
+    .hero p { font-size: 1.05rem; max-width: 68ch; color: var(--muted); }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 10px; margin: var(--space-3) 0 var(--space-4); }
+    .pill { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; border: 1px solid var(--stroke); background: color-mix(in srgb, var(--bg2) 70%, transparent); font-size: 0.9rem; color: color-mix(in srgb, var(--text) 80%, var(--muted2)); }
+    .pill svg { width: 16px; height: 16px; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: var(--space-3); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 16px; border-radius: 14px; border: 1px solid var(--stroke); text-decoration: none; font-weight: 600; letter-spacing: -0.01em; color: inherit; background: color-mix(in srgb, var(--bg2) 78%, transparent); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.10); transition: transform 160ms ease, background 160ms ease, border-color 160ms ease; }
+    button.btn { cursor: pointer; font-family: inherit; }
+    .btn:hover { transform: translateY(-1px); background: color-mix(in srgb, var(--bg2) 92%, transparent); border-color: var(--stroke-strong); }
+    .btn.primary { border-color: color-mix(in srgb, var(--link) 35%, var(--stroke)); background: linear-gradient(180deg, color-mix(in srgb, var(--accent1) 52%, var(--bg2)), color-mix(in srgb, var(--bg2) 78%, transparent)); }
+    .btn svg { width: 18px; height: 18px; }
+    .hero-side { padding: var(--space-4); border-radius: var(--radius-lg); border: 1px solid var(--stroke); background: linear-gradient(180deg, color-mix(in srgb, var(--bg2) 80%, transparent), color-mix(in srgb, var(--bg2) 55%, transparent)); box-shadow: var(--shadow-soft); }
+    .hero-side h3 { font-size: 1.02rem; margin-bottom: var(--space-2); }
+    .hero-side code { font-family: var(--mono); font-size: 0.9rem; padding: 2px 6px; border-radius: 8px; border: 1px solid var(--stroke); background: color-mix(in srgb, var(--bg1) 72%, transparent); }
+    .grid { display: grid; gap: var(--space-4); }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    @media (max-width: 980px) { .grid.three { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 680px) { .grid.two, .grid.three { grid-template-columns: 1fr; } }
+    .grid .full { grid-column: 1 / -1; }
+    .lead { font-size: 1.05rem; max-width: 78ch; color: var(--text); }
+    .hero .lead { color: var(--muted); }
+    .window { border-radius: var(--radius-lg); border: 1px solid var(--stroke); overflow: hidden; box-shadow: var(--shadow); background: var(--card); backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat)); -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat)); }
+    .window-bar { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-bottom: 1px solid color-mix(in srgb, var(--stroke) 70%, transparent); background: color-mix(in srgb, var(--bg1) 86%, transparent); }
+    .traffic { display: inline-flex; gap: 8px; align-items: center; }
+    .dot { width: 12px; height: 12px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--stroke) 60%, transparent); }
+    .dot.red { background: color-mix(in srgb, #ff3b30 82%, transparent); }
+    .dot.yellow { background: color-mix(in srgb, #ffcc00 82%, transparent); }
+    .dot.green { background: color-mix(in srgb, #34c759 82%, transparent); }
+    .window-title { font-size: 0.9rem; color: var(--muted2); letter-spacing: 0.01em; }
+    .window-body { padding: var(--space-5); }
+    .accordion { display: grid; gap: 10px; margin-top: var(--space-3); }
+    .acc-item { border-radius: 14px; border: 1px solid var(--stroke); background: color-mix(in srgb, var(--bg2) 75%, transparent); overflow: clip; }
+    .acc-trigger { width: 100%; text-align: left; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 14px; background: transparent; border: 0; cursor: pointer; color: inherit; font-weight: 650; letter-spacing: -0.01em; }
+    .acc-trigger:hover { background: color-mix(in srgb, var(--bg2) 92%, transparent); }
+    .acc-icon { width: 20px; height: 20px; flex: none; transition: transform 160ms ease; opacity: 0.9; }
+    .acc-trigger[aria-expanded="true"] .acc-icon { transform: rotate(180deg); }
+    .acc-panel { padding: 0 14px 14px; color: var(--muted); display: block; }
+    .acc-panel[hidden] { display: none; }
+    .form { display: grid; gap: 12px; margin-top: var(--space-3); }
+    label { font-size: 0.92rem; color: var(--muted2); display: grid; gap: 6px; }
+    input, textarea { width: 100%; padding: 12px 12px; border-radius: 14px; border: 1px solid var(--stroke); background: color-mix(in srgb, var(--bg2) 70%, transparent); color: inherit; font-family: var(--font); font-size: 1rem; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08); }
+    textarea { min-height: 120px; resize: vertical; }
+    .notice { font-size: 0.92rem; color: var(--muted2); border-left: 3px solid color-mix(in srgb, var(--link) 55%, transparent); padding-left: 12px; margin-top: 10px; }
+    footer { padding: 26px 0 40px; border-top: 1px solid color-mix(in srgb, var(--stroke) 70%, transparent); background: color-mix(in srgb, var(--bg1) 55%, transparent); }
+    .footer-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; }
+    .footer-links { display: inline-flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .footer-links a { text-decoration: none; color: color-mix(in srgb, var(--text) 80%, var(--muted2)); padding: 8px 10px; border-radius: 12px; }
+    .footer-links a:hover { background: color-mix(in srgb, var(--bg2) 82%, transparent); border: 1px solid color-mix(in srgb, var(--stroke) 70%, transparent); padding: 7px 9px; }
+    .copyright { color: var(--muted2); font-size: 0.92rem; }
+    @media (pointer: coarse) { .nav a.navlink { padding: 10px 12px; } .iconbtn { width: 42px; height: 42px; } .btn { padding: 14px 18px; } }
+
+    /* === ADVANCED UI ANIMATIONS === */
+    
+    /* Scroll-triggered fade-in animations */
+    .scroll-reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+    .scroll-reveal.revealed { opacity: 1; transform: translateY(0); }
+    .scroll-reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+    .scroll-reveal-left.revealed { opacity: 1; transform: translateX(0); }
+    .scroll-reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+    .scroll-reveal-right.revealed { opacity: 1; transform: translateX(0); }
+    .scroll-reveal-scale { opacity: 0; transform: scale(0.92); transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+    .scroll-reveal-scale.revealed { opacity: 1; transform: scale(1); }
+    
+    /* Staggered animation delays for grid items */
+    .grid .card:nth-child(1) { transition-delay: 0ms; }
+    .grid .card:nth-child(2) { transition-delay: 80ms; }
+    .grid .card:nth-child(3) { transition-delay: 160ms; }
+    .grid .card:nth-child(4) { transition-delay: 240ms; }
+    .grid .card:nth-child(5) { transition-delay: 320ms; }
+    .grid .card:nth-child(6) { transition-delay: 400ms; }
+    
+    /* Animated gradient background - DISABLED to keep original */
+    @keyframes gradientShift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+    
+    /* Floating animation for hero elements */
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    .hero-side { animation: float 6s ease-in-out infinite; }
+    
+    /* Enhanced card hover with shadow */
+    .card { transition: box-shadow 0.3s ease, border-color 0.3s ease; }
+    .card:hover { box-shadow: 0 20px 44px rgba(0, 0, 0, 0.14); border-color: var(--stroke-strong); }
+    
+    /* Glowing button effect */
+    .btn.primary { position: relative; overflow: hidden; }
+    .btn.primary::before { content: ''; position: absolute; inset: -2px; background: linear-gradient(135deg, var(--accent1), var(--accent3), var(--accent2)); border-radius: inherit; opacity: 0; transition: opacity 0.4s ease; z-index: -1; filter: blur(12px); }
+    .btn.primary:hover::before { opacity: 0.6; }
+    
+    /* Pill hover animation */
+    .pill { transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease; }
+    .pill:hover { transform: translateY(-2px); background: color-mix(in srgb, var(--bg2) 90%, transparent); border-color: var(--stroke-strong); }
+    
+    /* Smooth icon button rotation */
+    .iconbtn svg { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+    .iconbtn:hover svg { transform: rotate(180deg); }
+    
+    /* Window component shine effect */
+    .window { position: relative; overflow: hidden; }
+    .window::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.08) 50%, transparent 60%); transform: translateX(-100%) rotate(45deg); transition: transform 0.8s ease; pointer-events: none; }
+    .window:hover::before { transform: translateX(100%) rotate(45deg); }
+    
+    /* Accordion smooth expand */
+    .acc-panel { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s ease; padding: 0 14px; }
+    .acc-panel:not([hidden]) { max-height: 300px; padding: 0 14px 14px; }
+    
+    /* Navigation link underline animation */
+    .nav a.navlink { position: relative; }
+    .nav a.navlink::after { content: ''; position: absolute; bottom: 4px; left: 50%; width: 0; height: 2px; background: #1a1a1a; border-radius: 1px; transition: width 0.3s ease, left 0.3s ease; }
+    .nav a.navlink:hover::after { width: 60%; left: 20%; }
+    .nav a.navlink[aria-current="page"]::after { width: 60%; left: 20%; }
+    .nav a.brand::after, .nav .brand::after, header .brand::after, a.brand::after { display: none !important; width: 0 !important; content: none !important; }
+    .brand::after { display: none !important; }
+    .brand.glass::after { display: none !important; }
+    a.brand { overflow: visible; }
+    
+    /* Glass card shimmer on hover */
+    .glass { position: relative; overflow: hidden; }
+    .glass::after { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); transform: skewX(-20deg); transition: left 0.6s ease; pointer-events: none; }
+    .glass:hover::after { left: 150%; }
+    .brand-ascii { position: relative; z-index: 1; }
+    a:has(.brand-ascii)::after, .glass:has(.brand-ascii)::after { display: none !important; }
+    
+    /* Scroll progress indicator */
+    .scroll-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, var(--accent1), var(--link), var(--accent3)); z-index: 1001; transition: width 0.1s linear; }
+    
+    /* Typing cursor animation for code elements */
+    @keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
+    .hero-side code::after { content: '|'; animation: blink 1s step-end infinite; margin-left: 2px; color: var(--link); }
+    
+    /* Smooth section transitions */
+    .section { position: relative; }
+    .section::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 120px; height: 1px; background: linear-gradient(90deg, transparent, var(--stroke-strong), transparent); }
+    .section:first-of-type::before { display: none; }
+    
+    /* Enhanced form focus states */
+    input:focus, textarea:focus { border-color: var(--link); box-shadow: 0 0 0 4px color-mix(in srgb, var(--link) 15%, transparent), 0 10px 24px rgba(0, 0, 0, 0.08); outline: none; }
+    
+    /* Subtle gradient text on main headings */
+    h2 { background: linear-gradient(135deg, #c06080 0%, #c09060 25%, #a0a060 50%, #60a070 75%, #8060a0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    
+    /* Header blur intensifies on scroll (via JS class) */
+    header.scrolled { backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); box-shadow: 0 1px 0 var(--stroke); }
+    
+    /* Copy button success state */
+    [data-copy].copied { background: color-mix(in srgb, var(--accent4) 40%, var(--bg2)) !important; border-color: color-mix(in srgb, var(--accent4) 60%, var(--stroke)) !important; }
+    
+    /* Smooth focus transition for accessibility */
+    a, button, input, textarea { transition: box-shadow 0.2s ease, border-color 0.2s ease; }
+    
+    /* Selection color */
+    ::selection { background: color-mix(in srgb, var(--link) 30%, transparent); }
+
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce) {
+      .scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale { opacity: 1; transform: none; transition: none; }
+      .hero-side { animation: none; }
+      .card:hover { transform: none; }
+      .window::before, .glass::after { display: none; }
+      .btn.primary::before { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="bg" aria-hidden="true"></div>
+  <a class="skip-link" href="#home">Skip to main content</a>
+
+  <header>
+    <div class="container nav">
+      <a class="brand scroll-brand" href="#home" aria-label="Caser Publishing — Home">
+        <pre class="brand-ascii" aria-hidden="true">
+  █████████     █████████    █████████  ██████████ ███████████
+ ███░░░░░███   ███░░░░░███  ███░░░░░███░░███░░░░░█░░███░░░░░███
+░███    ░░░   ░███    ░███ ░███    ░░░  ░███  █ ░  ░███    ░███
+░███          ░███████████ ░░█████████  ░██████    ░██████████ 
+░███          ░███░░░░░███  ░░░░░░░░███ ░███░░█    ░███░░░░░███
+░░███    ███  ░███    ░███  ███    ░███ ░███ ░   █ ░███    ░███
+ ░░█████████  █████   █████░░█████████  ██████████ █████   █████
+  ░░░░░░░░░  ░░░░░   ░░░░░  ░░░░░░░░░  ░░░░░░░░░░ ░░░░░   ░░░░░</pre>
+      </a>
+      <nav aria-label="Primary">
+        <a class="navlink" href="#home">Home</a>
+        <a class="navlink" href="#about">About</a>
+        <a class="navlink" href="#values">Principles</a>
+        <a class="navlink" href="#portfolio">Portfolio</a>
+        <a class="navlink" href="#quality">Standards</a>
+        <a class="navlink" href="#privacy">Legal</a>
+        <a class="navlink" href="#support">FAQ</a>
+        <a class="navlink" href="#contact">Contact</a>
+        <span class="nav-actions" aria-label="Appearance controls">
+          <button class="iconbtn" id="themeToggle" type="button" aria-label="Toggle light or dark mode" aria-pressed="false">
+            <svg viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false">
+              <path d="M12 18.2a6.2 6.2 0 1 1 0-12.4 6.2 6.2 0 0 1 0 12.4Z" fill="none" stroke="currentColor" stroke-width="1.7" />
+              <path d="M12 2.5v2.2M12 19.3v2.2M3.2 12h2.2M18.6 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.8" />
+            </svg>
+          </button>
+        </span>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home" tabindex="-1">
+    <section class="hero">
+      <div class="container">
+        <div class="glass hero-wrap" role="region" aria-label="Caser Publishing hero">
+          <div>
+            <div class="kicker">Solo iOS Developer</div>
+            <a href="#home" style="text-decoration: none;"><pre class="brand-ascii" aria-label="Caser Publishing" style="margin: 8px 0 13px; overflow-x: auto;">
+  █████████     █████████    █████████  ██████████ ███████████       ███████████  █████  █████ ███████████  █████        █████  █████████  █████   █████ █████ ██████   █████   █████████  
+ ███░░░░░███   ███░░░░░███  ███░░░░░███░░███░░░░░█░░███░░░░░███     ░░███░░░░░███░░███  ░░███ ░░███░░░░░███░░███        ░░███  ███░░░░░███░░███   ░░███ ░░███ ░░██████ ░░███   ███░░░░░███ 
+░███    ░░░   ░███    ░███ ░███    ░░░  ░███  █ ░  ░███    ░███      ░███    ░███ ░███   ░███  ░███    ░███ ░███         ░███ ░███    ░░░  ░███    ░███  ░███  ░███░███ ░███  ███     ░░░  
+░███          ░███████████ ░░█████████  ░██████    ░██████████       ░██████████  ░███   ░███  ░██████████  ░███         ░███ ░░█████████  ░███████████  ░███  ░███░░███░███ ░███          
+░███          ░███░░░░░███  ░░░░░░░░███ ░███░░█    ░███░░░░░███      ░███░░░░░░   ░███   ░███  ░███░░░░░███ ░███         ░███  ░░░░░░░░███ ░███░░░░░███  ░███  ░███ ░░██████ ░███    █████ 
+░░███    ███  ░███    ░███  ███    ░███ ░███ ░   █ ░███    ░███      ░███         ░███   ░███  ░███    ░███ ░███      █  ░███  ███    ░███ ░███    ░███  ░███  ░███  ░░█████ ░░███  ░░███  
+ ░░█████████  █████   █████░░█████████  ██████████ █████   █████     █████        ░░████████   ███████████  ███████████  █████░░█████████  █████   █████ █████ █████  ░░█████ ░░█████████  
+  ░░░░░░░░░  ░░░░░   ░░░░░  ░░░░░░░░░  ░░░░░░░░░░ ░░░░░   ░░░░░     ░░░░░          ░░░░░░░░   ░░░░░░░░░░░  ░░░░░░░░░░░  ░░░░░  ░░░░░░░░░  ░░░░░   ░░░░░ ░░░░░ ░░░░░    ░░░░░   ░░░░░░░░░   </pre></a>
+            <p class="lead">
+              Native iOS and macOS applications for wellness, productivity, and everyday utility—designed with precision and maintained for long-term use.
+            </p>
+            <div class="pill-row" aria-label="Focus areas">
+              <span class="pill">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 13.2 9.4 16.6 18 8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                Native iOS & macOS (SwiftUI)
+              </span>
+              <span class="pill">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v18M3 12h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.8" /></svg>
+                Systems-first design
+              </span>
+              <span class="pill">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 17h10M9 7h6M6 12h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.85" /></svg>
+                Ongoing iteration
+              </span>
+            </div>
+            <div class="cta-row">
+              <a class="btn primary" href="#portfolio" aria-label="View Apps">
+                View Apps
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 12h10M13 7l4 5-4 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              </a>
+              <a class="btn" href="#contact" aria-label="Contact">
+                Contact
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7.5 12 13l8-5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /><path d="M5 8.5v9h14v-9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.85" /></svg>
+              </a>
+            </div>
+          </div>
+          <aside class="hero-side" aria-label="At-a-glance">
+            <h3>Connect</h3>
+            <p class="muted">Independent iOS developer focused on quality, reliability, and continuous improvement. For questions, bug reports, or product ideas, email is the most direct channel.</p>
+            <p class="muted">Email: <code id="supportEmail">hi@caserlegal.com</code></p>
+            <div class="cta-row" aria-label="Quick actions">
+              <button class="btn" type="button" data-copy="hi@caserlegal.com" aria-label="Copy email">
+                Copy
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 8h10v12H8z" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M6 16H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1" fill="none" stroke="currentColor" stroke-width="1.7" opacity="0.85"/></svg>
+              </button>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section" aria-labelledby="about-title">
+      <div class="container" style="max-width: 740px;">
+        <div class="kicker">About</div>
+        <h2 id="about-title">Background</h2>
+        
+        <p class="lead" style="font-size: 1.15rem; line-height: 1.65; margin-bottom: 34px;">
+          My trajectory toward software development has been shaped by early exposure to Apple's product ecosystem, reinforced by iterative self-directed experimentation, and strengthened by interdisciplinary experiences that emphasize precision, responsibility, and sustained practice.
+        </p>
+        
+        <article style="font-size: 1.02rem; line-height: 1.8; color: var(--text);">
+          <h3 style="font-size: 1rem; margin-bottom: 8px; color: var(--text);">Early exposure and identity formation</h3>
+          <p style="margin-bottom: 21px;">
+            Receiving an iPod mini and later watching the iPhone keynote introduced me to technology as an integrated experience: hardware, software, and communication working together to shape user behavior. In response, I began producing early technology videos and exploring the iOS simulator through the Apple Developer Program. Although these efforts were not professionally significant, they were developmentally important because they established a sense of belonging to the world of builders and creators.
+          </p>
+          
+          <h3 style="font-size: 1rem; margin-bottom: 8px; color: var(--text);">Experimentation and delayed persistence</h3>
+          <p style="margin-bottom: 21px;">
+            My early attempts did not result in a substantive software release beyond a simple soundboard, and I redirected effort toward sports and other structured activities. This shift illustrates a common pattern in skill acquisition: when feedback cycles are long and outcomes are uncertain, individuals often prefer domains with clearer near-term reinforcement. Despite that detour, the underlying motivation to understand and construct systems remained.
+          </p>
+          
+          <h3 style="font-size: 1rem; margin-bottom: 8px; color: var(--text);">Re-entry through automation</h3>
+          <p style="margin-bottom: 21px;">
+            I re-engaged with building through Shortcuts, where automation provided an accessible entry point and rapid feedback. Over time, the work evolved from isolated workflows to questions of software design: how to convert functionality into a scalable application, how to maintain reliability, and how to move from personal utility to distributable product. This progression marks a shift from tinkering to intentional engineering.
+          </p>
+          
+          <h3 style="font-size: 1rem; margin-bottom: 8px; color: var(--text);">Interdisciplinary foundations</h3>
+          <p style="margin-bottom: 21px;">
+            Experiences as a licensed insurance producer and as a private pilot, alongside college study in aeronautical engineering and maintenance, required accuracy, procedural discipline, and accountability. These domains contributed transferable habits relevant to development, including attention to constraints, risk management, and continuous learning within regulated or safety-conscious environments.
+          </p>
+          
+          <h3 style="font-size: 1rem; margin-bottom: 8px; color: var(--text);">Current commitment</h3>
+          <p style="margin-bottom: 0;">
+            I now dedicate extensive time to development and treat the work as a long-term practice. The central driver is not novelty alone, but the compounding value of learning: each project reveals new technical and design limitations, and each limitation becomes a prompt for further improvement. In this sense, my path reflects a sustained movement from early fascination to disciplined execution.
+          </p>
+        </article>
+        
+      </div>
+    </section>
+
+    <section id="values" class="section" aria-labelledby="values-title">
+      <div class="container">
+        <div class="kicker">Principles</div>
+        <h2 id="values-title">Operating principles</h2>
+        <p class="lead">
+          The goal is to offer the inverse of common failure modes in consumer software: neglected feedback, unresolved defects, and support that is effectively inaccessible. The standard is simple: build tools that respect users' time, attention, and trust.
+        </p>
+        <div class="grid two">
+          <div class="card">
+            <h3>Feedback as an input, not a formality</h3>
+            <p>User feedback is treated as a primary source of product direction and quality assurance. If you encounter an issue, reaching out directly is the fastest path to a fix and often prevents recurring problems for others. Messages are reviewed and acted on.</p>
+          </div>
+          <div class="card">
+            <h3>Where support goes</h3>
+            <p>Subscriptions are reinvested into development: maintenance, performance work, accessibility improvements, and new features. Pricing is intended to remain lightweight and sustainable.</p>
+          </div>
+          <div class="card full" role="region" aria-label="Product commitments">
+            <h3>Product commitments</h3>
+            <ul>
+              <li>Native, polished experiences with predictable behavior</li>
+              <li>Interfaces that prioritize clarity over engagement tactics</li>
+              <li>No dark patterns, coercive prompts, or infinite feeds</li>
+              <li>Direct human support with follow-through</li>
+            </ul>
+            <p style="margin-top: 13px; color: var(--muted);"><em>Your support funds ongoing maintenance and improvement.</em></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="section" aria-labelledby="portfolio-title">
+      <div class="container">
+        <div class="kicker">Portfolio</div>
+        <h2 id="portfolio-title">What I build</h2>
+        <p class="lead">
+          The portfolio spans multiple categories, guided by two filters: genuine curiosity and problems worth solving in daily use. The consistent goal across categories is the same: small, reliable tools that feel native and remain maintainable over time.
+        </p>
+        <div class="grid three" aria-label="Portfolio grid">
+          <article class="card">
+            <h3>Daily Wisdom</h3>
+            <p>Quotes and short reflections designed as a low-friction daily practice rather than an attention-driven feed.</p>
+            <ul>
+              <li>Curated collections</li>
+              <li>Optional daily notifications</li>
+              <li>Favorites and saving</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Wellness & Mindfulness</h3>
+            <p>Tools that support small, repeatable rituals (breathing, reflection, sleep routines).</p>
+            <ul>
+              <li>Guided breathing patterns</li>
+              <li>Mood journaling workflows</li>
+              <li>Sleep sounds and timers</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Productivity</h3>
+            <p>Minimal systems for focus and consistency that avoid feature sprawl.</p>
+            <ul>
+              <li>Pomodoro-style timers</li>
+              <li>Streak and habit tracking</li>
+              <li>Daily planning</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Finance & Budgeting</h3>
+            <p>Simple expense awareness without spreadsheet overhead.</p>
+            <ul>
+              <li>Quick logging</li>
+              <li>Category summaries</li>
+              <li>Budget targets</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Health & Fitness</h3>
+            <p>Lightweight tracking to support awareness and continuity.</p>
+            <ul>
+              <li>Activity tracking</li>
+              <li>Workout logging</li>
+              <li>Health-related insights</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Utilities & Fun</h3>
+            <p>Small, practical tools and occasional playful experiments.</p>
+            <ul>
+              <li>Household reminders (e.g., laundry, trash)</li>
+              <li>Unit converters</li>
+              <li>Card games and puzzles</li>
+            </ul>
+          </article>
+        </div>
+        <div style="height: var(--space-5);"></div>
+        <div class="window" role="region" aria-labelledby="pipeline-title">
+          <div class="window-bar">
+            <div class="traffic" aria-hidden="true"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+            <div class="window-title">How I work</div>
+            <div style="width: 40px;" aria-hidden="true"></div>
+          </div>
+          <div class="window-body">
+            <h3 id="pipeline-title">From idea to App Store</h3>
+            <p class="lead">The workflow is designed to reduce wasted complexity and increase product reliability.</p>
+            <div class="grid three" aria-label="Pipeline stages">
+              <div class="card">
+                <h3>Explore</h3>
+                <p>Identify a real constraint (time, friction, confusion). Define the user, the task, and the smallest version that meaningfully solves it.</p>
+              </div>
+              <div class="card">
+                <h3>Build</h3>
+                <p>Implement in SwiftUI with an emphasis on responsiveness, clarity, and predictable state. Test on real devices early and often.</p>
+              </div>
+              <div class="card">
+                <h3>Ship & Improve</h3>
+                <p>Release, collect feedback, and iterate. Maintenance is treated as a continuing responsibility, not a post-launch afterthought.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="quality" class="section" aria-labelledby="quality-title">
+      <div class="container">
+        <div class="kicker">Standards</div>
+        <h2 id="quality-title">Approach to quality</h2>
+        <p class="lead">
+          Quality is treated as a combination of correctness, usability, and durability. The goal is not only to ship features, but to ship software that remains stable and understandable over time.
+        </p>
+        <div class="grid two">
+          <div class="card">
+            <h3>Process</h3>
+            <ul>
+              <li>Build natively with SwiftUI for performance and platform consistency</li>
+              <li>Test on physical iPhones and iPads (not simulators alone)</li>
+              <li>Validate accessibility: dynamic type, contrast, VoiceOver, and tap targets</li>
+              <li>Iterate based on real usage patterns and user feedback</li>
+              <li>Fix defects quickly and document recurring root causes</li>
+            </ul>
+          </div>
+          <div class="card" role="region" aria-label="Legal disclaimer">
+            <h3>Legal disclaimer</h3>
+            <p>
+              THE SOFTWARE AND SERVICES ARE PROVIDED "AS IS" AND WITHOUT WARRANTY OF ANY KIND.
+              TO THE MAXIMUM EXTENT PERMITTED BY LAW, CASER PUBLISHING DISCLAIMS ALL WARRANTIES,
+              EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION IMPLIED WARRANTIES OF MERCHANTABILITY,
+              FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+            </p>
+            <p>
+              USE AT YOUR OWN RISK. IN NO EVENT SHALL CASER PUBLISHING BE LIABLE FOR ANY INDIRECT,
+              INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES,
+              WHETHER INCURRED DIRECTLY OR INDIRECTLY.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="privacy" class="section" aria-labelledby="privacy-title">
+      <div class="container">
+        <div class="kicker">Privacy</div>
+        <h2 id="privacy-title">Privacy Policy</h2>
+        <p class="lead">
+          I build apps the way I prefer to use them: with minimal data collection, clear disclosure, and no incentive to monetize attention.
+        </p>
+        <p class="notice"><strong>Last updated:</strong> <time datetime="2025-12-14">December 14, 2025</time></p>
+        <div class="grid two" aria-label="Privacy summary">
+          <div class="card">
+            <h3>Short version</h3>
+            <ul>
+              <li>I do not sell your data</li>
+              <li>No advertising trackers</li>
+              <li>Most apps work without an account</li>
+              <li>If data is required for a feature, the purpose is disclosed clearly</li>
+              <li>Questions: <a href="mailto:support@caserlegal.com">support@caserlegal.com</a></li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>This website</h3>
+            <p>This site is a simple static page with no cookies, analytics, or third-party trackers.</p>
+          </div>
+        </div>
+        <div style="height: var(--space-4);"></div>
+        <div class="window" role="region" aria-labelledby="privacy-full-title">
+          <div class="window-bar">
+            <div class="traffic" aria-hidden="true"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+            <div class="window-title">Privacy</div>
+            <div style="width: 40px;" aria-hidden="true"></div>
+          </div>
+          <div class="window-body">
+            <h3 id="privacy-full-title">Full policy</h3>
+            <h3>Scope</h3>
+            <p>This policy covers this website and apps published under the Caser Publishing label. Individual apps may provide additional in-app notices when feature-specific handling applies.</p>
+            <h3>Data collection</h3>
+            <ul>
+              <li><strong>Support emails:</strong> If you email me, I receive your email address and message content to provide support.</li>
+              <li><strong>In-app submissions:</strong> Some apps allow feedback or submissions; data is used only for the stated purpose.</li>
+              <li><strong>Diagnostics:</strong> Some apps may collect crash reports to identify and fix defects.</li>
+              <li><strong>Purchases:</strong> Apple processes payments. I do not receive payment credentials.</li>
+            </ul>
+            <h3>Sharing</h3>
+            <p>I do not sell personal data. If service providers are used for specific functions (e.g., crash reporting), they are expected to protect data and use it only to deliver that function.</p>
+            <h3>Third-party AI</h3>
+            <p>If an app uses third-party AI that would require sharing user data, this will be disclosed, and permission will be requested before data is sent.</p>
+            <h3>Permissions</h3>
+            <p>System permissions (Photos, Location, etc.) are controlled through device settings and can be revoked at any time.</p>
+            <h3>Tracking</h3>
+            <p>I do not track users for advertising. If tracking were ever introduced, it would use Apple's permission prompt.</p>
+            <h3>Accounts</h3>
+            <p>If an app includes accounts, it will include a deletion mechanism. Most apps do not require accounts.</p>
+            <h3>Deletion requests</h3>
+            <p>Email <a href="mailto:support@caserlegal.com">support@caserlegal.com</a> to request deletion of any data that I control.</p>
+            <h3>Changes</h3>
+            <p>If this policy changes, the "Last updated" date will be revised.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="terms" class="section" aria-labelledby="terms-title">
+      <div class="container">
+        <div class="kicker">Terms</div>
+        <h2 id="terms-title">Terms of Use</h2>
+        <p class="lead">These terms govern your use of my apps and this website. By using them, you agree to these terms.</p>
+        <p class="notice"><strong>Last updated:</strong> <time datetime="2025-12-14">December 14, 2025</time></p>
+        <div class="grid two">
+          <div class="card">
+            <h3>Who I am</h3>
+            <p>"Caser Publishing" is my independent publishing label for iOS and macOS apps.</p>
+          </div>
+          <div class="card">
+            <h3>Acceptable use</h3>
+            <p>Use the apps for lawful purposes. Do not attempt to exploit, disrupt, or misuse services, or use them to harm others.</p>
+          </div>
+          <div class="card">
+            <h3>App Store</h3>
+            <p>Apps distributed through the App Store are also subject to Apple's terms, which may govern transactions and platform-specific rights.</p>
+          </div>
+          <div class="card">
+            <h3>Purchases</h3>
+            <p>Subscriptions and in-app purchases are processed by Apple. Refunds follow Apple's procedures.</p>
+          </div>
+          <div class="card">
+            <h3>Privacy</h3>
+            <p>Use is also governed by the <a href="#privacy">Privacy Policy</a>.</p>
+          </div>
+          <div class="card">
+            <h3>Disclaimers</h3>
+            <p>Apps and services are provided "AS IS" without warranties to the extent permitted by law.</p>
+          </div>
+          <div class="card full">
+            <h3>Limitation of liability</h3>
+            <p>To the maximum extent permitted by law, I am not liable for indirect, incidental, special, or consequential damages arising from use.</p>
+          </div>
+          <div class="card">
+            <h3>Changes</h3>
+            <p>Terms may be updated. Continued use indicates acceptance of the updated terms.</p>
+          </div>
+          <div class="card">
+            <h3>Contact</h3>
+            <p>Questions: <a href="mailto:support@caserlegal.com">support@caserlegal.com</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="eula" class="section" aria-labelledby="eula-title">
+      <div class="container">
+        <div class="kicker">EULA</div>
+        <h2 id="eula-title">End User License Agreement</h2>
+        <p class="lead">Apps from the App Store are licensed, not sold. Unless an app provides a custom EULA, Apple's standard agreement applies.</p>
+        <p class="notice"><strong>Last updated:</strong> <time datetime="2025-12-14">December 14, 2025</time></p>
+        <div class="grid two">
+          <div class="card">
+            <h3>Apple Standard EULA</h3>
+            <p>Most apps use Apple's standard end-user license agreement.</p>
+            <p class="notice"><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">apple.com/legal/internet-services/itunes/dev/stdeula</a></p>
+          </div>
+          <div class="card">
+            <h3>Custom EULA</h3>
+            <p>If an app uses a custom EULA, it will be linked on that app's App Store page.</p>
+          </div>
+          <div class="card full">
+            <h3>Questions</h3>
+            <p><a href="mailto:support@caserlegal.com">support@caserlegal.com</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="support" class="section" aria-labelledby="support-title">
+      <div class="container">
+        <div class="kicker">Support</div>
+        <h2 id="support-title">Need help?</h2>
+        <p class="lead">
+          Email is the most reliable channel. To resolve issues quickly, include details that allow reproduction and diagnosis.
+        </p>
+        <div class="grid two">
+          <div class="card">
+            <h3>What to include</h3>
+            <ul>
+              <li>Which app you're using</li>
+              <li>Device model and iOS version</li>
+              <li>What you were doing when the issue occurred</li>
+              <li>Screenshots (with personal info redacted)</li>
+            </ul>
+            <p class="notice">Email: <a href="mailto:support@caserlegal.com">support@caserlegal.com</a></p>
+          </div>
+          <div class="card">
+            <h3>Response time</h3>
+            <p>As a solo developer, responses may not be immediate, but messages are reviewed consistently and addressed in priority order.</p>
+          </div>
+        </div>
+        <div style="height: var(--space-5);"></div>
+        <div class="window" role="region" aria-labelledby="faq-title">
+          <div class="window-bar">
+            <div class="traffic" aria-hidden="true"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+            <div class="window-title">FAQ</div>
+            <div style="width: 40px;" aria-hidden="true"></div>
+          </div>
+          <div class="window-body">
+            <h3 id="faq-title">Common questions</h3>
+            <div class="accordion" aria-label="Support FAQ">
+              <div class="acc-item">
+                <button class="acc-trigger" type="button" aria-expanded="false" aria-controls="faq-1">
+                  How do I request deletion of my data?
+                  <svg class="acc-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div id="faq-1" class="acc-panel" hidden>Email <a href="mailto:support@caserlegal.com">support@caserlegal.com</a> with "Deletion Request" in the subject and specify what to delete.</div>
+              </div>
+              <div class="acc-item">
+                <button class="acc-trigger" type="button" aria-expanded="false" aria-controls="faq-2">
+                  Do you track users for advertising?
+                  <svg class="acc-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div id="faq-2" class="acc-panel" hidden>No. If tracking were ever needed, it would require Apple's permission prompt.</div>
+              </div>
+              <div class="acc-item">
+                <button class="acc-trigger" type="button" aria-expanded="false" aria-controls="faq-3">
+                  How do subscriptions and refunds work?
+                  <svg class="acc-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div id="faq-3" class="acc-panel" hidden>Subscriptions are managed in Apple ID settings. Refunds follow Apple's process (<a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>).</div>
+              </div>
+              <div class="acc-item">
+                <button class="acc-trigger" type="button" aria-expanded="false" aria-controls="faq-4">
+                  Can I suggest a feature?
+                  <svg class="acc-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div id="faq-4" class="acc-panel" hidden>Yes. Email suggestions are reviewed and considered during planning.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="kicker">Contact</div>
+        <h2 id="contact-title">Contact</h2>
+        <p class="lead">Bug reports, feature proposals, and general questions are welcome. Messages are read directly.</p>
+        <div class="grid two">
+          <div class="card" style="padding: 0; display: flex; flex-direction: column;">
+            <div style="padding: 21px 21px 13px; border-bottom: 1px solid var(--stroke);">
+              <h3 style="margin: 0;">Email Channels</h3>
+              <p class="muted" style="margin: 8px 0 0; font-size: 0.85rem;">Reach the right inbox, every time</p>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column;">
+              <a href="mailto:hi@caserlegal.com" style="flex: 1; display: flex; align-items: center; padding: 0 21px; border-bottom: 1px solid var(--stroke); text-decoration: none; transition: background 0.2s;">
+                <div style="width: 34px; height: 34px; border-radius: 8px; background: linear-gradient(135deg, #2a2a2a, #5a5a5a); display: flex; align-items: center; justify-content: center; margin-right: 13px; flex-shrink: 0;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; color: var(--text);">General</div>
+                  <div style="font-size: 0.85rem; color: var(--muted);">hi@caserlegal.com</div>
+                </div>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--muted2)" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+              </a>
+              <a href="mailto:support@caserlegal.com" style="flex: 1; display: flex; align-items: center; padding: 0 21px; border-bottom: 1px solid var(--stroke); text-decoration: none; transition: background 0.2s;">
+                <div style="width: 34px; height: 34px; border-radius: 8px; background: linear-gradient(135deg, #2a2a2a, #5a5a5a); display: flex; align-items: center; justify-content: center; margin-right: 13px; flex-shrink: 0;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; color: var(--text);">Support</div>
+                  <div style="font-size: 0.85rem; color: var(--muted);">support@caserlegal.com</div>
+                </div>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--muted2)" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+              </a>
+              <a href="mailto:ideas@caserlegal.com" style="flex: 1; display: flex; align-items: center; padding: 0 21px; border-bottom: 1px solid var(--stroke); text-decoration: none; transition: background 0.2s;">
+                <div style="width: 34px; height: 34px; border-radius: 8px; background: linear-gradient(135deg, #2a2a2a, #5a5a5a); display: flex; align-items: center; justify-content: center; margin-right: 13px; flex-shrink: 0;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; color: var(--text);">Ideas</div>
+                  <div style="font-size: 0.85rem; color: var(--muted);">ideas@caserlegal.com</div>
+                </div>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--muted2)" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+              </a>
+              <a href="mailto:press@caserlegal.com" style="flex: 1; display: flex; align-items: center; padding: 0 21px; text-decoration: none; transition: background 0.2s;">
+                <div style="width: 34px; height: 34px; border-radius: 8px; background: linear-gradient(135deg, #2a2a2a, #5a5a5a); display: flex; align-items: center; justify-content: center; margin-right: 13px; flex-shrink: 0;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; color: var(--text);">Press</div>
+                  <div style="font-size: 0.85rem; color: var(--muted);">press@caserlegal.com</div>
+                </div>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--muted2)" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Quick contact</h3>
+            <p class="muted">This form opens your email client; nothing is transmitted from the website.</p>
+            <form class="form" id="contactForm" autocomplete="on">
+              <label>Your name (optional)<input type="text" name="name" autocomplete="name" /></label>
+              <label>Your email (optional)<input type="email" name="email" autocomplete="email" inputmode="email" /></label>
+              <label>Message<textarea name="message" required></textarea></label>
+              <button class="btn primary" type="submit">
+                Open in email app
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7.5 12 13l8-5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /><path d="M5 8.5v9h14v-9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.85" /></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 34px; flex-wrap: wrap;">
+        <div class="footer-links" aria-label="Footer links" style="display: flex; gap: 8px; align-items: center;">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#values">Principles</a>
+          <a href="#portfolio">Portfolio</a>
+        </div>
+        <a href="#home" aria-label="Back to top" style="text-decoration: none; color: inherit;"><pre class="brand-ascii" aria-hidden="true" style="margin: 0;">  █████████     █████████    █████████  ██████████ ███████████
+ ███░░░░░███   ███░░░░░███  ███░░░░░███░░███░░░░░█░░███░░░░░███
+░███    ░░░   ░███    ░███ ░███    ░░░  ░███  █ ░  ░███    ░███
+░███          ░███████████ ░░█████████  ░██████    ░██████████ 
+░███          ░███░░░░░███  ░░░░░░░░███ ░███░░█    ░███░░░░░███
+░░███    ███  ░███    ░███  ███    ░███ ░███ ░   █ ░███    ░███
+ ░░█████████  █████   █████░░█████████  ██████████ █████   █████
+  ░░░░░░░░░  ░░░░░   ░░░░░  ░░░░░░░░░  ░░░░░░░░░░ ░░░░░   ░░░░░</pre></a>
+        <div class="footer-links" aria-label="More links" style="display: flex; gap: 8px; align-items: center;">
+          <a href="#quality">Standards</a>
+          <a href="#privacy">Legal</a>
+          <a href="#support">FAQ</a>
+          <a href="#contact" style="display: inline-flex; align-items: center; gap: 4px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M22 6l-10 7L2 6" fill="none" stroke="currentColor" stroke-width="2"/></svg>Contact</a>
+        </div>
+      </div>
+      <p class="muted" style="margin-top: 21px; text-align: center;">© <span id="year">2025</span> Caser Publishing · Apple, App Store, iOS, iPadOS, macOS are trademarks of Apple Inc.</p>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const root = document.documentElement;
+      root.classList.remove('no-js');
+      const y = document.getElementById('year');
+      if (y) y.textContent = String(new Date().getFullYear());
+      const themeBtn = document.getElementById('themeToggle');
+      const THEME_KEY = 'caserlegal.theme';
+      const applyTheme = (theme) => {
+        if (theme === 'light' || theme === 'dark') { root.setAttribute('data-theme', theme); }
+        else { root.removeAttribute('data-theme'); }
+        if (themeBtn) themeBtn.setAttribute('aria-pressed', String(theme === 'dark'));
+      };
+      const storedTheme = localStorage.getItem(THEME_KEY) || 'light';
+      applyTheme(storedTheme || 'light');
+      if (themeBtn) {
+        themeBtn.addEventListener('click', (e) => {
+          if (e.altKey) { localStorage.setItem(THEME_KEY, 'system'); applyTheme('system'); return; }
+          const current = root.getAttribute('data-theme');
+          const next = current === 'dark' ? 'light' : 'dark';
+          localStorage.setItem(THEME_KEY, next);
+          applyTheme(next);
+        });
+      }
+      const navLinks = Array.from(document.querySelectorAll('nav[aria-label="Primary"] a.navlink[href^="#"]'));
+      const linkById = new Map(navLinks.map(a => [a.getAttribute('href').slice(1), a]));
+      const targets = Array.from(document.querySelectorAll('main#home, section.section[id]')).filter(el => el.id && linkById.has(el.id));
+      const setCurrent = (id) => { navLinks.forEach(a => a.removeAttribute('aria-current')); const link = linkById.get(id); if (link) link.setAttribute('aria-current', 'page'); };
+      if (targets.length) {
+        const io = new IntersectionObserver((entries) => {
+          const visible = entries.filter(e => e.isIntersecting).sort((a, b) => (b.intersectionRatio - a.intersectionRatio))[0];
+          if (visible) setCurrent(visible.target.id);
+        }, { rootMargin: '-20% 0px -70% 0px', threshold: [0, 0.1, 0.2, 0.3, 0.5] });
+        targets.forEach(t => io.observe(t));
+        setCurrent('home');
+      }
+      // Also set Home when scrolled to very top + header scroll effect
+      const header = document.querySelector('header');
+      window.addEventListener('scroll', () => { 
+        if (window.scrollY < 100) setCurrent('home');
+        if (header) header.classList.toggle('scrolled', window.scrollY > 200);
+      }, { passive: true });
+      document.querySelectorAll('[data-copy]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const text = btn.getAttribute('data-copy') || '';
+          if (!text) return;
+          const original = btn.innerHTML;
+          try { 
+            await navigator.clipboard.writeText(text); 
+            btn.classList.add('copied');
+            btn.textContent = 'Copied!'; 
+            setTimeout(() => { btn.innerHTML = original; btn.classList.remove('copied'); }, 1200); 
+          }
+          catch { window.prompt('Copy:', text); }
+        });
+      });
+      document.querySelectorAll('.acc-trigger').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          const panelId = btn.getAttribute('aria-controls');
+          const panel = panelId ? document.getElementById(panelId) : null;
+          btn.setAttribute('aria-expanded', String(!expanded));
+          if (panel) panel.hidden = expanded;
+        });
+      });
+      const form = document.getElementById('contactForm');
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const fd = new FormData(form);
+          const name = String(fd.get('name') || '').trim();
+          const email = String(fd.get('email') || '').trim();
+          const message = String(fd.get('message') || '').trim();
+          const lines = ['Caser Publishing — Contact', '', name ? `Name: ${name}` : null, email ? `Email: ${email}` : null, '', message ? message : '(No message provided)'].filter(Boolean);
+          const subject = 'Caser Publishing — Support / Inquiry';
+          const body = lines.join('\n');
+          const mailto = `mailto:hi@caserlegal.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+          window.location.href = mailto;
+        });
+      }
+      
+      // === ADVANCED UI FEATURES ===
+      
+      // Scroll Progress Indicator
+      const scrollProgress = document.querySelector('.scroll-progress');
+      if (scrollProgress) {
+        const updateProgress = () => {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+          scrollProgress.style.width = progress + '%';
+        };
+        window.addEventListener('scroll', updateProgress, { passive: true });
+        updateProgress();
+      }
+      
+      // Scroll Reveal Animations with Intersection Observer
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!prefersReducedMotion) {
+        // Add scroll-reveal classes to elements
+        document.querySelectorAll('.section h2, .section .lead').forEach(el => el.classList.add('scroll-reveal'));
+        document.querySelectorAll('.card').forEach(el => el.classList.add('scroll-reveal'));
+        document.querySelectorAll('.window').forEach(el => el.classList.add('scroll-reveal-scale'));
+        document.querySelectorAll('.hero-wrap > div:first-child').forEach(el => el.classList.add('scroll-reveal-left'));
+        document.querySelectorAll('.hero-side').forEach(el => el.classList.add('scroll-reveal-right'));
+        
+        // Create observer for scroll animations
+        const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
+        
+        document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale').forEach(el => {
+          revealObserver.observe(el);
+        });
+      }
+      
+      // Magnetic button effect
+      document.querySelectorAll('.btn.primary').forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+          if (prefersReducedMotion) return;
+          const rect = btn.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+        });
+        btn.addEventListener('mouseleave', () => {
+          btn.style.transform = '';
+        });
+      });
+      
+    })();
+  </script>
+</body>
+</html>
