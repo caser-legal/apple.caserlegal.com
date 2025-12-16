@@ -139,6 +139,7 @@
     /* Scroll-reveal logo - absolutely positioned so it doesn't affect nav centering */
     .scroll-brand { position: absolute; left: 0; top: 50%; transform: translateY(-50%); opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
     header.scrolled .scroll-brand { opacity: 1; pointer-events: auto; }
+    @media (max-width: 860px) { .scroll-brand { display: none !important; } }
     .brand:hover { text-decoration: none !important; }
     .brand::before, .brand::after, .brand *::before, .brand *::after { display: none !important; content: none !important; background: none !important; width: 0 !important; height: 0 !important; }
     .brand-ascii { font-family: var(--mono); font-size: 4px; line-height: 1; letter-spacing: -0.5px; margin: 0; white-space: pre; color: var(--text); }
